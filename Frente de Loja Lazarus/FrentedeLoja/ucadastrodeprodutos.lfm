@@ -1,0 +1,335 @@
+inherited FormCadastrodeProdutos: TFormCadastrodeProdutos
+  Caption = ''
+  OnKeyDown = FormKeyDown
+  inherited PanelBotoes: TPanel
+    inherited BitBtnSalvar: TBitBtn
+      OnClick = BitBtnSalvarClick
+    end
+    inherited BitBtnNovo: TBitBtn
+      OnClick = BitBtnNovoClick
+    end
+    inherited BitBtnCancelar: TBitBtn
+      OnClick = BitBtnCancelarClick
+    end
+  end
+  inherited PanelCampos: TPanel
+    object PanelPrincipal: TPanel[0]
+      Left = 168
+      Height = 320
+      Top = 40
+      Width = 650
+      ClientHeight = 320
+      ClientWidth = 650
+      TabOrder = 0
+      object Label7: TLabel
+        Left = 32
+        Height = 13
+        Top = 213
+        Width = 64
+        Caption = 'Fornecedor'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit6: TDBEdit
+        Left = 32
+        Height = 21
+        Top = 192
+        Width = 589
+        DataField = 'TB_ProdutosPrecoVendas'
+        DataSource = DataSource1
+        ReadOnly = True
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object Label6: TLabel
+        Left = 32
+        Height = 13
+        Top = 176
+        Width = 87
+        Caption = 'Preço de venda'
+        FocusControl = DBEdit6
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit5: TDBEdit
+        Left = 32
+        Height = 21
+        Top = 149
+        Width = 589
+        DataField = 'TB_ProdutosPrecoCompra'
+        DataSource = DataSource1
+        ReadOnly = True
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 3
+      end
+      object Label5: TLabel
+        Left = 32
+        Height = 13
+        Top = 136
+        Width = 95
+        Caption = 'Preço de compra'
+        FocusControl = DBEdit5
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit4: TDBEdit
+        Left = 32
+        Height = 21
+        Top = 112
+        Width = 589
+        DataField = 'TB_ProdutosCodBarras'
+        DataSource = DataSource1
+        ReadOnly = True
+        CharCase = ecUppercase
+        MaxLength = 180
+        TabOrder = 2
+      end
+      object Label4: TLabel
+        Left = 32
+        Height = 13
+        Top = 96
+        Width = 95
+        Caption = 'Código de barras'
+        FocusControl = DBEdit4
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit3: TDBEdit
+        Left = 32
+        Height = 21
+        Top = 72
+        Width = 589
+        DataField = 'TB_ProdutosDescricao'
+        DataSource = DataSource1
+        ReadOnly = True
+        CharCase = ecUppercase
+        MaxLength = 180
+        TabOrder = 1
+      end
+      object Label3: TLabel
+        Left = 32
+        Height = 13
+        Top = 56
+        Width = 55
+        Caption = 'Descrição'
+        FocusControl = DBEdit3
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit2: TDBEdit
+        Left = 32
+        Height = 21
+        Top = 32
+        Width = 589
+        DataField = 'TB_ProdutosNome'
+        DataSource = DataSource1
+        ReadOnly = True
+        CharCase = ecUppercase
+        MaxLength = 180
+        TabOrder = 0
+      end
+      object Label2: TLabel
+        Left = 32
+        Height = 13
+        Top = 13
+        Width = 32
+        Caption = 'Nome'
+        FocusControl = DBEdit2
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit7: TDBEdit
+        Left = 32
+        Height = 21
+        Top = 274
+        Width = 589
+        DataField = 'TB_ProdutosAliquota'
+        DataSource = DataSource1
+        ReadOnly = True
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 6
+      end
+      object Label8: TLabel
+        Left = 32
+        Height = 13
+        Top = 258
+        Width = 113
+        Caption = 'Aliquota de imposto'
+        FocusControl = DBEdit7
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 32
+        Height = 21
+        Top = 232
+        Width = 588
+        DataField = 'TB_Fornecedores_idTB_Fornecedores'
+        DataSource = DataSource1
+        KeyField = 'idTB_Fornecedores'
+        ListField = 'TB_FornecedoresNome'
+        ListFieldIndex = 0
+        ListSource = DataSource2
+        LookupCache = False
+        TabOrder = 5
+      end
+    end
+  end
+  inherited ZQueryPrincipal: TZQuery
+    Active = True
+    SQL.Strings = (
+      'select * from tb_produtos'
+    )
+    object ZQueryPrincipalTB_ProdutosNome: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'TB_ProdutosNome'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 180
+    end
+    object ZQueryPrincipalTB_ProdutosDescricao: TStringField[1]
+      FieldKind = fkData
+      FieldName = 'TB_ProdutosDescricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 180
+    end
+    object ZQueryPrincipalTB_ProdutosCodBarras: TStringField[2]
+      FieldKind = fkData
+      FieldName = 'TB_ProdutosCodBarras'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 180
+    end
+    object ZQueryPrincipalTB_ProdutosAliquota: TFloatField[3]
+      FieldKind = fkData
+      FieldName = 'TB_ProdutosAliquota'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 10
+    end
+    object ZQueryPrincipalTB_ProdutosPrecoCompra: TFloatField[4]
+      FieldKind = fkData
+      FieldName = 'TB_ProdutosPrecoCompra'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 12
+    end
+    object ZQueryPrincipalTB_ProdutosPrecoVendas: TFloatField[5]
+      FieldKind = fkData
+      FieldName = 'TB_ProdutosPrecoVendas'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 12
+    end
+    object ZQueryPrincipalTB_Fornecedores_idTB_Fornecedores: TLongintField[6]
+      FieldKind = fkData
+      FieldName = 'TB_Fornecedores_idTB_Fornecedores'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  inherited ZQueryAUX: TZQuery
+    left = 72
+    top = 168
+  end
+  object ZQueryFornecedores: TZQuery[6]
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from tb_fornecedores'
+    )
+    Params = <>
+    left = 40
+    top = 248
+    object ZQueryFornecedoresidTB_Fornecedores: TLongintField
+      FieldKind = fkData
+      FieldName = 'idTB_Fornecedores'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZQueryFornecedoresTB_FornecedoresNome: TStringField
+      FieldKind = fkData
+      FieldName = 'TB_FornecedoresNome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 420
+    end
+  end
+  object DataSource2: TDataSource[7]
+    DataSet = ZQueryFornecedores
+    left = 109
+    top = 253
+  end
+  object ZUpdateSQL1: TZUpdateSQL[8]
+    UseSequenceFieldForRefreshSQL = False
+    left = 128
+    top = 80
+  end
+end

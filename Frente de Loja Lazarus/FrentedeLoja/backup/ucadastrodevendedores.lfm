@@ -1,0 +1,133 @@
+inherited FormCadastroVendedores: TFormCadastroVendedores
+  Height = 462
+  Top = 196
+  ActiveControl = EditNome
+  Caption = 'Cadastro de vendedores'
+  ClientHeight = 462
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  Position = poDesktopCenter
+  inherited PanelBotoes: TPanel
+    Top = 321
+    inherited BitBtnVoltar: TBitBtn
+      OnClick = BitBtnVoltarClick
+    end
+    inherited BitBtnLocalizar: TBitBtn
+      OnClick = BitBtnLocalizarClick
+    end
+    inherited BitBtnSalvar: TBitBtn
+      OnClick = BitBtnSalvarClick
+    end
+    inherited BitBtnNovo: TBitBtn
+      OnClick = BitBtnNovoClick
+    end
+    inherited BitBtnCancelar: TBitBtn
+      OnClick = BitBtnCancelarClick
+    end
+  end
+  inherited PanelCampos: TPanel
+    Height = 321
+    ClientHeight = 321
+    object PanelCentral: TPanel[0]
+      Left = 176
+      Height = 224
+      Top = 32
+      Width = 690
+      Anchors = []
+      ClientHeight = 224
+      ClientWidth = 690
+      TabOrder = 0
+      object Label1: TLabel
+        Left = 48
+        Height = 13
+        Top = 32
+        Width = 32
+        Caption = 'Nome'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 48
+        Height = 13
+        Top = 72
+        Width = 30
+        Caption = 'Login'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 48
+        Height = 13
+        Top = 112
+        Width = 35
+        Caption = 'Senha'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 48
+        Height = 13
+        Top = 150
+        Width = 79
+        Caption = 'Repetir senha'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object EditNome: TEdit
+        Left = 47
+        Height = 21
+        Top = 48
+        Width = 584
+        CharCase = ecUppercase
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object EditLogin: TEdit
+        Left = 49
+        Height = 21
+        Top = 88
+        Width = 584
+        CharCase = ecUppercase
+        ReadOnly = True
+        TabOrder = 1
+      end
+      object EditSenha: TEdit
+        Left = 49
+        Height = 21
+        Top = 128
+        Width = 584
+        EchoMode = emPassword
+        PasswordChar = '*'
+        ReadOnly = True
+        TabOrder = 2
+      end
+      object EditRepetir: TEdit
+        Left = 48
+        Height = 21
+        Top = 168
+        Width = 584
+        EchoMode = emPassword
+        PasswordChar = '*'
+        ReadOnly = True
+        TabOrder = 3
+      end
+    end
+  end
+end
