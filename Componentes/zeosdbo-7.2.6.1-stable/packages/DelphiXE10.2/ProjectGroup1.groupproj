@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{29CB171F-D899-45B5-AD0F-5D0E72834A9E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ZParseSql.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ZDbc.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ZComponent.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ZCore.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ZParseSql">
+        <MSBuild Projects="ZParseSql.dproj"/>
+    </Target>
+    <Target Name="ZParseSql:Clean">
+        <MSBuild Projects="ZParseSql.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ZParseSql:Make">
+        <MSBuild Projects="ZParseSql.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ZDbc">
+        <MSBuild Projects="ZDbc.dproj"/>
+    </Target>
+    <Target Name="ZDbc:Clean">
+        <MSBuild Projects="ZDbc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ZDbc:Make">
+        <MSBuild Projects="ZDbc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ZComponent">
+        <MSBuild Projects="ZComponent.dproj"/>
+    </Target>
+    <Target Name="ZComponent:Clean">
+        <MSBuild Projects="ZComponent.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ZComponent:Make">
+        <MSBuild Projects="ZComponent.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ZCore">
+        <MSBuild Projects="ZCore.dproj"/>
+    </Target>
+    <Target Name="ZCore:Clean">
+        <MSBuild Projects="ZCore.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ZCore:Make">
+        <MSBuild Projects="ZCore.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ZParseSql;ZDbc;ZComponent;ZCore"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ZParseSql:Clean;ZDbc:Clean;ZComponent:Clean;ZCore:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ZParseSql:Make;ZDbc:Make;ZComponent:Make;ZCore:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

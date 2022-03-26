@@ -1,0 +1,39 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{330B17AC-111F-4029-9B2B-4550F9EEC0D4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PngPackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PngPackage.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PngPackage">
+        <MSBuild Projects="PngPackage.dproj"/>
+    </Target>
+    <Target Name="PngPackage:Clean">
+        <MSBuild Projects="PngPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PngPackage:Make">
+        <MSBuild Projects="PngPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PngPackage;PngPackage"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PngPackage:Clean;PngPackage:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PngPackage:Make;PngPackage:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
