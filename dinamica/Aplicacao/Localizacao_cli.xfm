@@ -1,0 +1,77 @@
+object FrmLocaCli: TFrmLocaCli
+  Left = 141
+  Top = 183
+  Width = 482
+  Height = 167
+  VertScrollBar.Range = 160
+  HorzScrollBar.Range = 481
+  BorderIcons = [biSystemMenu]
+  Caption = 'Localiza'#231#227'o de clientes'
+  Color = clBackground
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  TextWidth = 6
+  object Edit1: TEdit
+    Left = 48
+    Top = 8
+    Width = 89
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 0
+    OnKeyPress = Edit1KeyPress
+  end
+  object Edit2: TEdit
+    Left = 192
+    Top = 8
+    Width = 257
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 1
+    OnKeyPress = Edit2KeyPress
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 40
+    Width = 481
+    Height = 120
+    DataSource = DSLocaCli
+    TabOrder = 2
+    TitleFont.Color = clBlack
+    TitleFont.Height = 11
+    TitleFont.Name = 'MS Shell Dlg'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Style = []
+    TitleFont.Weight = 40
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CPF_CLI'
+        Title.Caption = 'CPF'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NOME_CLI'
+        Title.Caption = 'NOME'
+        Visible = True
+      end>
+  end
+  object IBQLocaCli: TIBQuery
+    Database = FrmPrincipal.IBDatabase1
+    Transaction = FrmPrincipal.IBTransaction1
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_CLIENTES')
+    Left = 112
+    Top = 88
+  end
+  object DSLocaCli: TDataSource
+    AutoEdit = False
+    DataSet = IBQLocaCli
+    Left = 144
+    Top = 88
+  end
+end

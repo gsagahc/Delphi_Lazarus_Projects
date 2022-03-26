@@ -1,0 +1,3 @@
+delete from cad_clientes;
+delete from importacoes;
+delete from parcelas;
