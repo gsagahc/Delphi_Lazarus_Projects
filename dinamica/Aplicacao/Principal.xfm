@@ -1,0 +1,484 @@
+object FrmData: TFrmData
+  Left = 413
+  Top = 160
+  Width = 522
+  Height = 198
+  BorderStyle = fbsDialog
+  Caption = 'Datamodule'
+  Color = clBackground
+  KeyPreview = True
+  Position = poDesktopCenter
+  Visible = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  TextWidth = 6
+  object IBTb_Cad_cli: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    FieldDefs = <
+      item
+        Name = 'COD_CLI'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CPF_CLI'
+        Attributes = [faRequired, faFixed]
+        DataType = ftString
+        Size = 24
+      end
+      item
+        Name = 'NOME_CLI'
+        DataType = ftString
+        Size = 256
+      end
+      item
+        Name = 'ENDERECO_CLI'
+        DataType = ftString
+        Size = 256
+      end
+      item
+        Name = 'BAIRRO_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'CIDADE_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'CEP_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 12
+      end
+      item
+        Name = 'UF_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'FONE1_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 12
+      end
+      item
+        Name = 'FONE2_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 12
+      end
+      item
+        Name = 'CELULAR_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 12
+      end
+      item
+        Name = 'CONTATO_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'EMPRESA_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'END_COM_CLI'
+        DataType = ftString
+        Size = 256
+      end
+      item
+        Name = 'BAIRRO_COM_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'CIDADE_COM_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'UF_COM_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'FONE_COM_CLI'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 12
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY1'
+        Fields = 'COD_CLI'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'IDX_CAD_CLIENTES'
+        Fields = 'CPF_CLI'
+      end>
+    StoreDefs = True
+    TableName = 'CAD_CLIENTES'
+    Left = 48
+    Top = 56
+    object IBTb_Cad_cliCPF_CLI: TIBStringField
+      FieldName = 'CPF_CLI'
+      Size = 24
+    end
+    object IBTb_Cad_cliNOME_CLI: TIBStringField
+      FieldName = 'NOME_CLI'
+      Size = 256
+    end
+    object IBTb_Cad_cliENDERECO_CLI: TIBStringField
+      FieldName = 'ENDERECO_CLI'
+      Size = 256
+    end
+    object IBTb_Cad_cliBAIRRO_CLI: TIBStringField
+      FieldName = 'BAIRRO_CLI'
+      Size = 90
+    end
+    object IBTb_Cad_cliCIDADE_CLI: TIBStringField
+      FieldName = 'CIDADE_CLI'
+      Size = 90
+    end
+    object IBTb_Cad_cliCEP_CLI: TIBStringField
+      FieldName = 'CEP_CLI'
+      Size = 12
+    end
+    object IBTb_Cad_cliUF_CLI: TIBStringField
+      FieldName = 'UF_CLI'
+      Size = 2
+    end
+    object IBTb_Cad_cliFONE1_CLI: TIBStringField
+      FieldName = 'FONE1_CLI'
+      Size = 12
+    end
+    object IBTb_Cad_cliFONE2_CLI: TIBStringField
+      FieldName = 'FONE2_CLI'
+      Size = 12
+    end
+    object IBTb_Cad_cliCELULAR_CLI: TIBStringField
+      FieldName = 'CELULAR_CLI'
+      Size = 12
+    end
+    object IBTb_Cad_cliCONTATO_CLI: TIBStringField
+      FieldName = 'CONTATO_CLI'
+      Size = 30
+    end
+    object IBTb_Cad_cliEMPRESA_CLI: TIBStringField
+      FieldName = 'EMPRESA_CLI'
+      Size = 90
+    end
+    object IBTb_Cad_cliEND_COM_CLI: TIBStringField
+      FieldName = 'END_COM_CLI'
+      Size = 256
+    end
+    object IBTb_Cad_cliBAIRRO_COM_CLI: TIBStringField
+      FieldName = 'BAIRRO_COM_CLI'
+      Size = 90
+    end
+    object IBTb_Cad_cliCIDADE_COM_CLI: TIBStringField
+      FieldName = 'CIDADE_COM_CLI'
+      Size = 90
+    end
+    object IBTb_Cad_cliUF_COM_CLI: TIBStringField
+      FieldName = 'UF_COM_CLI'
+      Size = 2
+    end
+    object IBTb_Cad_cliFONE_COM_CLI: TIBStringField
+      FieldName = 'FONE_COM_CLI'
+      Size = 12
+    end
+  end
+  object IBDatabase1: TIBDatabase
+    Connected = True
+    DatabaseName = 'D:\Dinamica\Dados\DADOS.GDB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey')
+    LoginPrompt = False
+    IdleTimer = 0
+    SQLDialect = 1
+    TraceFlags = []
+    Left = 16
+    Top = 8
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = IBDatabase1
+    AutoStopAction = saNone
+    Left = 48
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = IBTb_Cad_cli
+    Left = 104
+    Top = 56
+  end
+  object IBUpdateSQL1: TIBUpdateSQL
+    Left = 88
+    Top = 8
+  end
+  object IBTb_clientes: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    FieldDefs = <
+      item
+        Name = 'COD_CLIENTES'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CPF_CLIENTE'
+        DataType = ftString
+        Size = 11
+      end
+      item
+        Name = 'NOME_CLIENTE'
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'ENDERECO_CLIENTE'
+        DataType = ftString
+        Size = 256
+      end
+      item
+        Name = 'BAIRRO_CLIENTE'
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'CIDADE_CLIENTE'
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'CEP_CLIENTE'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'UF_CLIENTE'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'CARNET_CLIENTE'
+        DataType = ftString
+        Size = 12
+      end
+      item
+        Name = 'PARCELA_CLIENTE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'DATA_COMPRA_CLIENTE'
+        DataType = ftDateTime
+      end
+      item
+        Name = 'VENCIMENTO'
+        DataType = ftDateTime
+      end
+      item
+        Name = 'VALOR_PARCELA'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'TIPO_PAG'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'END_COMERC'
+        DataType = ftString
+        Size = 256
+      end
+      item
+        Name = 'BAIRRO_COMER'
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'NUM_PARCELAS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'UF_COMERCIAL'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'TELEFONE__1'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 16
+      end
+      item
+        Name = 'TELEFONE_2'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 16
+      end
+      item
+        Name = 'CONTATO'
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'EMPRESA'
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'FUNCAO_CLIENTE'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 90
+      end
+      item
+        Name = 'PG'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'IDX_CLIENTES'
+        Fields = 'CPF_CLIENTE'
+      end
+      item
+        Name = 'IDX_CLIENTES1'
+        Fields = 'CARNET_CLIENTE'
+      end>
+    StoreDefs = True
+    TableName = 'CLIENTES'
+    Left = 16
+    Top = 56
+    object IBTb_clientesCPF_CLIENTE: TIBStringField
+      FieldName = 'CPF_CLIENTE'
+      Size = 11
+    end
+    object IBTb_clientesNOME_CLIENTE: TIBStringField
+      FieldName = 'NOME_CLIENTE'
+      Size = 90
+    end
+    object IBTb_clientesENDERECO_CLIENTE: TIBStringField
+      FieldName = 'ENDERECO_CLIENTE'
+      Size = 256
+    end
+    object IBTb_clientesBAIRRO_CLIENTE: TIBStringField
+      FieldName = 'BAIRRO_CLIENTE'
+      Size = 90
+    end
+    object IBTb_clientesCIDADE_CLIENTE: TIBStringField
+      FieldName = 'CIDADE_CLIENTE'
+      Size = 90
+    end
+    object IBTb_clientesCEP_CLIENTE: TIBStringField
+      FieldName = 'CEP_CLIENTE'
+      FixedChar = True
+      Size = 10
+    end
+    object IBTb_clientesUF_CLIENTE: TIBStringField
+      FieldName = 'UF_CLIENTE'
+      FixedChar = True
+      Size = 2
+    end
+    object IBTb_clientesCARNET_CLIENTE: TIBStringField
+      FieldName = 'CARNET_CLIENTE'
+      Size = 12
+    end
+    object IBTb_clientesPARCELA_CLIENTE: TIntegerField
+      FieldName = 'PARCELA_CLIENTE'
+    end
+    object IBTb_clientesDATA_COMPRA_CLIENTE: TDateTimeField
+      FieldName = 'DATA_COMPRA_CLIENTE'
+    end
+    object IBTb_clientesVENCIMENTO: TDateTimeField
+      FieldName = 'VENCIMENTO'
+    end
+    object IBTb_clientesVALOR_PARCELA: TIBStringField
+      FieldName = 'VALOR_PARCELA'
+      Size = 26
+    end
+    object IBTb_clientesTIPO_PAG: TIBStringField
+      FieldName = 'TIPO_PAG'
+      FixedChar = True
+      Size = 2
+    end
+    object IBTb_clientesEND_COMERC: TIBStringField
+      FieldName = 'END_COMERC'
+      Size = 256
+    end
+    object IBTb_clientesBAIRRO_COMER: TIBStringField
+      FieldName = 'BAIRRO_COMER'
+      Size = 90
+    end
+    object IBTb_clientesNUM_PARCELAS: TIntegerField
+      FieldName = 'NUM_PARCELAS'
+    end
+    object IBTb_clientesUF_COMERCIAL: TIBStringField
+      FieldName = 'UF_COMERCIAL'
+      FixedChar = True
+      Size = 2
+    end
+    object IBTb_clientesTELEFONE__1: TIBStringField
+      FieldName = 'TELEFONE__1'
+      FixedChar = True
+      Size = 16
+    end
+    object IBTb_clientesTELEFONE_2: TIBStringField
+      FieldName = 'TELEFONE_2'
+      FixedChar = True
+      Size = 16
+    end
+    object IBTb_clientesCONTATO: TIBStringField
+      FieldName = 'CONTATO'
+      Size = 90
+    end
+    object IBTb_clientesEMPRESA: TIBStringField
+      FieldName = 'EMPRESA'
+      Size = 90
+    end
+    object IBTb_clientesFUNCAO_CLIENTE: TIBStringField
+      FieldName = 'FUNCAO_CLIENTE'
+      FixedChar = True
+      Size = 90
+    end
+    object IBTb_clientesPG: TSmallintField
+      FieldName = 'PG'
+    end
+  end
+  object IBQGeral: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_CLIENTES')
+    Left = 120
+    Top = 8
+  end
+end
