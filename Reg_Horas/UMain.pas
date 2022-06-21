@@ -26,6 +26,7 @@ type
     Label2: TLabel;
     LabelTempo: TLabel;
     Label3: TLabel;
+    TimerBloqueio: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure SPBIniciarClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -33,6 +34,8 @@ type
     procedure persistenciaDeDados;
     procedure SPBConsultarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    function IsWorkstationLocked: Boolean;
+    procedure TimerBloqueioTimer(Sender: TObject);
   private
     Jornada : TJornada;
     Tempo:TTime;
@@ -65,6 +68,7 @@ begin
     LbContador.Caption:='Hora inicial: '+FormatDateTime('hh:nn:ss', Now );
     Tempo:=Time;
     Timer1.Enabled:=True;
+    TimerBloqueio.Enabled :=True;
    except
 
    end;
@@ -84,6 +88,7 @@ begin
     Timer1.Enabled:=False;
     Jornada.SetHoraFim(FormatDateTime('hh:nn:ss', now));
     persistenciaDeDados;
+    TimerBloqueio.Enabled :=False;
   end
   Else
     tFrmMensagens.Mensagem('Não existe jornada inicializada','E',[mbOK]) ;
@@ -122,6 +127,28 @@ procedure TFrmPrincipal.FormShow(Sender: TObject);
 begin
   DateTimePickerIni.Date :=Now;
   DateTimePickerFim.Date :=Now+1;
+end;
+
+function TFrmPrincipal.IsWorkstationLocked: Boolean;
+var
+ hDesktop: HDESK;
+begin
+  {Verifica a cada 10 min se a tela está bloqueada}
+  Result := False;
+  hDesktop := OpenDesktop('default',0, False,
+  DESKTOP_SWITCHDESKTOP);
+  if hDesktop <> 0 then
+  begin
+    Result := not SwitchDesktop(hDesktop);
+    CloseDesktop(hDesktop);
+  end;
+end;
+procedure TFrmPrincipal.TimerBloqueioTimer(Sender: TObject);
+begin
+  {Se a tela estiver bloqueada finaliza o tempo}
+ if IsWorkstationLocked  then
+   SPBFinalizarClick(self);
+
 end;
 
 end.
