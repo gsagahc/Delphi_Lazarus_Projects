@@ -21,6 +21,7 @@ type
     procedure PNGButton2Click(Sender: TObject);
     procedure PNGButton6Click(Sender: TObject);
     function CalculaAcumuladoMes(sData:TDate ): Real;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,7 +62,7 @@ begin
                                   ' INNER JOIN TB_PRODUTOS   '+
                                   ' ON TB_PRODUTOS.ID_PRODUTO=TB_CONTROLE_PERDAS.TBCP_ELASTICO '+
                                   ' WHERE TB_CONTROLE_PERDAS.TBCP_DATA =:PDATA');
-  IBQConsultarLancamentos.ParamByName('PDATA').AsDate :=DateTimePicker1.Date;
+  IBQConsultarLancamentos.ParamByName('PDATA').AsString :=FormatdateTime('dd/mm/yyyy', DateTimePicker1.Date);
   IBQConsultarLancamentos.Open;
   if Not IBQConsultarLancamentos.IsEmpty Then
   begin
@@ -117,6 +118,11 @@ begin
      Result:=RoundTo((SomaSegunda *100) / SomaPrimeira, -2);
    end;
 
+end;
+
+procedure TFrmConsultarLancamentos.FormShow(Sender: TObject);
+begin
+  DateTimePicker1.Date:=Now();
 end;
 
 end.

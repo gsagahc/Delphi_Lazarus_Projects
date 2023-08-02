@@ -377,6 +377,7 @@ end;
 
 Function TFrmNPedido.AtualizaEstoque(pEstoque:TObject; Quantidade:Real; Operacao:String):Boolean;
 var lEstoque: TEstoque;
+    sMensagem:string;
 begin
   Result:=False;
   lEstoque:= TEstoque.Create;
@@ -409,48 +410,48 @@ begin
                       ' FROM TB_PRODUTOS '+
                       ' WHERE ID_PRODUTO='+IntToStr(Estoque.Id_produto));
        IBQUtil.Open;
-       if (Copy(IBQUtil.FieldByName('TBPRD_NOME').AsString,1 ,2)='EL') or
-          (Copy(IBQUtil.FieldByName('TBPRD_NOME').AsString,1 ,5)='PERSO') then
-       begin
-       if  tFrmMensagens.Mensagem('A quantidade informada é maior do que o estoque '+
-                                'atual deste produto, o estoque ficará negativo.' +
-                                'Deseja continuar?','Q',[mbSIM, mbNAO]) Then
-         Begin
-           IBSQLUTIL.Close;
-           IBSQLUTIL.SQL.Clear;
-           IBSQLUTIL.Sql.Add('UPDATE TB_ESTOQUE ' +
-                            ' SET ' +
-                            ' TBES_QUANTI =TBES_QUANTI - :pQuantidade ' +
-                            ' WHERE ID_PRODUTO=:pIdProduto ' +
-                            ' AND ID_ESTOQUE= :pIdEstoque ');
-           IBSQLUTIL.ParamByName('pIdProduto').AsInteger := lEstoque.Id_produto  ;
-           IBSQLUTIL.ParamByName('pIdEstoque').AsInteger :=lEstoque.Id_estoque ;
-           IBSQLUTIL.ParamByName('pQuantidade').Value := Quantidade;
-           IBSQLUTIL.ExecQuery;
-           Result:=True;
-         end;
-       end
-       else
-           tFrmMensagens.Mensagem('A quantidade informada é maior do que o estoque '+
-                                  'atual deste produto, favor lançar estoque antes.' ,'E',[mbOK]);
+     //  if (Copy(IBQUtil.FieldByName('TBPRD_NOME').AsString,1 ,2)='EL') or
+   //       (Copy(IBQUtil.FieldByName('TBPRD_NOME').AsString,1 ,5)='PERSO') then
+    //   begin
+     sMensagem:= 'A quantidade informada é maior do que o estoque '+
+                 'atual deste produto, o estoque ficará negativo.' +
+                 'Deseja continuar?' ;
+     if  tFrmMensagens.Mensagem(sMensagem,'Q',[mbSIM, mbNAO]) Then
+     Begin
+       IBSQLUTIL.Close;
+       IBSQLUTIL.SQL.Clear;
+       IBSQLUTIL.Sql.Add('UPDATE TB_ESTOQUE ' +
+                        ' SET ' +
+                        ' TBES_QUANTI =TBES_QUANTI - :pQuantidade ' +
+                        ' WHERE ID_PRODUTO=:pIdProduto ' +
+                        ' AND ID_ESTOQUE= :pIdEstoque ');
+       IBSQLUTIL.ParamByName('pIdProduto').AsInteger := lEstoque.Id_produto  ;
+       IBSQLUTIL.ParamByName('pIdEstoque').AsInteger :=lEstoque.Id_estoque ;
+       IBSQLUTIL.ParamByName('pQuantidade').Value := Quantidade;
+       IBSQLUTIL.ExecQuery;
+       Result:=True;
+     end;
+   //    end ;
+     //  else
+     //      tFrmMensagens.Mensagem('A quantidade informada é maior do que o estoque '+
+     //                             'atual deste produto, favor lançar estoque antes.' ,'E',[mbOK]);
 
 
     end;
   End;
-   If Operacao ='S' Then
-   Begin
-      IBSQLUTIL.Close;
-      IBSQLUTIL.SQL.Clear;
-      IBSQLUTIL.Sql.Add('UPDATE TB_ESTOQUE ' +
-                        ' SET ' +
-                        ' TBES_QUANTI = TBES_QUANTI + :pQuantidade ' +
-                        'WHERE ID_ESTOQUE=:pIdEstoque ' );
-
-      IBSQLUTIL.ParamByName('pIdEstoque').AsInteger :=lEstoque.Id_estoque;
-      IBSQLUTIL.ParamByName('pQuantidade').Value := lEstoque.Quantidade ;
-      IBSQLUTIL.ExecQuery;
-      Result:=True;
-   End;
+  If Operacao ='S' Then
+  Begin
+    IBSQLUTIL.Close;
+    IBSQLUTIL.SQL.Clear;
+    IBSQLUTIL.Sql.Add('UPDATE TB_ESTOQUE ' +
+                      ' SET ' +
+                      ' TBES_QUANTI = TBES_QUANTI + :pQuantidade ' +
+                      'WHERE ID_ESTOQUE=:pIdEstoque ' );
+    IBSQLUTIL.ParamByName('pIdEstoque').AsInteger :=lEstoque.Id_estoque;
+    IBSQLUTIL.ParamByName('pQuantidade').Value := lEstoque.Quantidade ;
+    IBSQLUTIL.ExecQuery;
+    Result:=True;
+  End;
 
 
 end;

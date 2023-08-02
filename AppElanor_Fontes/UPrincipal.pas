@@ -252,6 +252,8 @@ type
     PNGButton12: TPNGButton;
     Qualidade1: TMenuItem;
     Localizarlote1: TMenuItem;
+    EStoquenegativo1: TMenuItem;
+    CorrigirAlerar1: TMenuItem;
     procedure Produtos1Click(Sender: TObject);
     procedure ToolButton1Click(Sender: TObject);
     procedure ToolButton4Click(Sender: TObject);
@@ -327,6 +329,8 @@ type
     procedure Despesas2Click(Sender: TObject);
     procedure PNGButton12Click(Sender: TObject);
     procedure Localizarlote1Click(Sender: TObject);
+    procedure EStoquenegativo1Click(Sender: TObject);
+    procedure CorrigirAlerar1Click(Sender: TObject);
   private
        TotalGeral:Currency;
     { Private declarations }
@@ -373,7 +377,7 @@ uses UCadProdutos, UEntraEstoque, UCadUser, UCadPedido, UCadCli,
   UConsultaFaturamentoMes, UConsultaPedProduto, URomaneioEntrega,
   USelecionarSkin, UFrmControlePerdas, UConsultarPerdas,
   UConsultarLancamentos, UCadastroDespesas, USelecionarDespesas,
-  UBuscarLote;
+  UBuscarLote, UZerarEStoqueNegativo, UAlterarControledePerdas;
 
    
 
@@ -691,8 +695,11 @@ end;
 
 procedure TFrmPrincipal.LerIni();
 Var ArqIni: TIniFile;
+    caminho:string;
 begin
-  ArqIni := TIniFile.Create('C:\AppElanor\Config.ini');
+  caminho:=Application.ExeName;
+  caminho:=Copy(caminho,1, pos('Elanor.exe',caminho)-1);
+  ArqIni := TIniFile.Create(caminho+'Config.ini');
   try
     BancoDados := ArqIni.ReadString('Configuracoes', 'DATABASE', BancoDados);
     SkinData1.SkinFile := ArqIni.ReadString('Configuracoes', 'SKIN', SkinData1.SkinFile);
@@ -1391,6 +1398,7 @@ procedure TFrmPrincipal.ConsultaSQL1Click(Sender: TObject);
 begin
   Application.CreateForm(TFormConsultaSQL, FormConsultaSQL);
   StatusBar1.Panels.Items[5].Text:= FormConsultaSQL.Caption;
+  FormConsultaSQL.IBDMain.Close;
   FormConsultaSQL.IBDMain.DatabaseName := IBDMain.DatabaseName;
   FormConsultaSQL.IBDMain.Open;
   FormConsultaSQL.ShowModal;
@@ -1513,6 +1521,24 @@ begin
   StatusBar1.Panels.Items[5].Text:= FrmBuscarLote.Caption;
   FrmBuscarLote.ShowModal;
   FreeAndNil(FrmBuscarLote);
+  StatusBar1.Panels.Items[5].Text:='';
+end;
+
+procedure TFrmPrincipal.EStoquenegativo1Click(Sender: TObject);
+begin
+  Application.CreateForm(TFrmEstoqueNegativo, FrmEstoqueNegativo);
+  StatusBar1.Panels.Items[5].Text:= FrmEstoqueNegativo.Caption;
+  FrmEstoqueNegativo.ShowModal;
+  FreeAndNil(FrmEstoqueNegativo);
+  StatusBar1.Panels.Items[5].Text:='';
+end;
+
+procedure TFrmPrincipal.CorrigirAlerar1Click(Sender: TObject);
+begin
+  Application.CreateForm(TFrmAlterarControlePerdas,FrmAlterarControlePerdas);
+  StatusBar1.Panels.Items[5].Text:= FrmAlterarControlePerdas.Caption;
+  FrmAlterarControlePerdas.ShowModal;
+  FreeAndNil(FrmAlterarControlePerdas);
   StatusBar1.Panels.Items[5].Text:='';
 end;
 

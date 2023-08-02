@@ -1,4 +1,4 @@
-program Elanor;
+ program Elanor;
 
 uses
   Forms,
@@ -83,7 +83,10 @@ uses
   UCadastroDespesas in 'UCadastroDespesas.pas' {FrmCadDespesas},
   USelecionarDespesas in 'USelecionarDespesas.pas' {FrmSelecionaDespesas},
   URelatorioDeCustos in 'URelatorioDeCustos.pas' {FrmRelCustos},
-  UBuscarLote in 'UBuscarLote.pas' {FrmBuscarLote};
+  UBuscarLote in 'UBuscarLote.pas' {FrmBuscarLote},
+  UZerarEStoqueNegativo in 'UZerarEStoqueNegativo.pas' {FrmEstoqueNegativo},
+  UAlterarControledePerdas in 'UAlterarControledePerdas.pas' {FrmAlterarControlePerdas},
+  UReimpressaoAlterarPerdas in 'UReimpressaoAlterarPerdas.pas' {FrmImpressaoAlteraPerdas: TQuickRep};
 
 {$R *.res}
 var

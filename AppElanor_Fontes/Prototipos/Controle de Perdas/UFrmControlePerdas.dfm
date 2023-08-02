@@ -21,16 +21,16 @@ object FrmControlePerdas: TFrmControlePerdas
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 153
-    Width = 1091
-    Height = 231
+    Top = 177
+    Width = 1083
+    Height = 195
     Align = alClient
     TabOrder = 0
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
-      Width = 1089
-      Height = 229
+      Width = 1081
+      Height = 193
       TabStop = False
       Align = alClient
       BorderStyle = bsNone
@@ -118,8 +118,8 @@ object FrmControlePerdas: TFrmControlePerdas
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 1091
-    Height = 153
+    Width = 1083
+    Height = 177
     Align = alTop
     TabOrder = 1
     object PNGBNovo: TPNGButton

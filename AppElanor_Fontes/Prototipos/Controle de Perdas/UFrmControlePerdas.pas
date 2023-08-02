@@ -158,7 +158,6 @@ begin
   LimparCampos;
   CDSPerdas.Insert;
   ReadOnly;
-  DTPData.Date := Now-1;
   EditMaquina.SetFocus;
 end;
 
@@ -502,6 +501,9 @@ begin
      EditQuantidadeRCExit(self);
   if (EditPercentual.Text='0')  then
      EditSegundaExit(self);
+
+  if  not (CDSPerdas.State  in [dsInsert]) then
+   CDSPerdas.Insert;
   if (EditMaquina.Text<>'0') and (EditComprimento.Text<>'0') and
            (EditQuantidadeRC.Text <>'0') and (EditPesoBruto.Text <>'0') and
            (ComboBoxElastico.ItemIndex <> -1 ) then
@@ -564,7 +566,7 @@ end;
 procedure TFrmControlePerdas.EditSegundaExit(Sender: TObject);
 begin
   if EditSegunda.Text <> '0' then
-    EditPercentual.Text := FormatFloat( '#,##0.00' ,(StrToFloat(EditSegunda.Text)*100/StrToFloat(EditPrimeira.Text)));
+    EditPercentual.Text := FormatFloat( '#,###.00' ,(StrToFloat(EditSegunda.Text)*100/StrToFloat(EditPrimeira.Text)));
 end;
 
 procedure TFrmControlePerdas.ReadOnly;

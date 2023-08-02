@@ -1572,6 +1572,10 @@ object FrmPrincipal: TFrmPrincipal
         Caption = 'Transfer'#234'ncia para rolo'
         OnClick = ransfernciapararolo1Click
       end
+      object EStoquenegativo1: TMenuItem
+        Caption = 'Estoque negativo'
+        OnClick = EStoquenegativo1Click
+      end
     end
     object Pedidos1: TMenuItem
       Caption = '&Pedidos'
@@ -1715,6 +1719,10 @@ object FrmPrincipal: TFrmPrincipal
       object Controledeperdas1: TMenuItem
         Caption = 'Controle de perdas'
         OnClick = Controledeperdas1Click
+      end
+      object CorrigirAlerar1: TMenuItem
+        Caption = 'Corrigir/Alerar'
+        OnClick = CorrigirAlerar1Click
       end
       object Consultarlanamentos1: TMenuItem
         Caption = 'Consultar lan'#231'amentos'

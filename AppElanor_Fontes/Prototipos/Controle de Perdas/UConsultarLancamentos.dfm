@@ -13,6 +13,7 @@ object FrmConsultarLancamentos: TFrmConsultarLancamentos
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object PNGButton6: TPNGButton
@@ -206,7 +207,7 @@ object FrmConsultarLancamentos: TFrmConsultarLancamentos
   object DateTimePicker1: TDateTimePicker
     Left = 16
     Top = 24
-    Width = 113
+    Width = 129
     Height = 21
     Date = 44557.327016423610000000
     Time = 44557.327016423610000000

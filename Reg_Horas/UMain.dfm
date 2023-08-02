@@ -30,7 +30,7 @@ object FrmPrincipal: TFrmPrincipal
       Top = 16
       Width = 113
       Height = 41
-      Caption = 'Iniciar Jornada'
+      Caption = 'Iniciar'
       Flat = True
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -53,7 +53,7 @@ object FrmPrincipal: TFrmPrincipal
       Top = 16
       Width = 113
       Height = 41
-      Caption = 'Finalizar Jornada'
+      Caption = 'Parar'
       Flat = True
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -247,5 +247,12 @@ object FrmPrincipal: TFrmPrincipal
     OnTimer = Timer1Timer
     Left = 224
     Top = 72
+  end
+  object TimerBloqueio: TTimer
+    Enabled = False
+    Interval = 10000
+    OnTimer = TimerBloqueioTimer
+    Left = 216
+    Top = 139
   end
 end
